@@ -516,6 +516,7 @@
 				2F39EA991E3A2EBB0010F597 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F39EA9A1E3A2EBB0010F597 /* Build configuration list for PBXNativeTarget "SensorikaMobileTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +525,7 @@
 				2F39EA9C1E3A2EBB0010F597 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F39EA9D1E3A2EBB0010F597 /* Build configuration list for PBXNativeTarget "SensorikaMobileUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +534,7 @@
 				2F39EA9F1E3A2EBB0010F597 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
