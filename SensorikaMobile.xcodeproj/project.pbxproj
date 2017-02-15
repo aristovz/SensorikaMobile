@@ -15,6 +15,11 @@
 		2F39EA7D1E3A2EBB0010F597 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F39EA7B1E3A2EBB0010F597 /* LaunchScreen.storyboard */; };
 		2F39EA881E3A2EBB0010F597 /* SensorikaMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA871E3A2EBB0010F597 /* SensorikaMobileTests.swift */; };
 		2F39EA931E3A2EBB0010F597 /* SensorikaMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA921E3A2EBB0010F597 /* SensorikaMobileUITests.swift */; };
+		2F89A4951E51D14A004D9D7F /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89A4941E51D14A004D9D7F /* Measure.swift */; };
+		2F89A4971E51D725004D9D7F /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89A4961E51D725004D9D7F /* Sensor.swift */; };
+		2FBD00441E54B7DD000AD9A9 /* MeasureProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD00431E54B7DD000AD9A9 /* MeasureProfile.swift */; };
+		2FBD00471E54BB0D000AD9A9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD00461E54BB0D000AD9A9 /* Extensions.swift */; };
+		DF37B9E6EA5013B268554512 /* Pods_SensorikaMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32EEA26EA33A493206F4A7 /* Pods_SensorikaMobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,13 @@
 		2F39EA8E1E3A2EBB0010F597 /* SensorikaMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SensorikaMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F39EA921E3A2EBB0010F597 /* SensorikaMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorikaMobileUITests.swift; sourceTree = "<group>"; };
 		2F39EA941E3A2EBB0010F597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F89A4941E51D14A004D9D7F /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		2F89A4961E51D725004D9D7F /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
+		2FBD00431E54B7DD000AD9A9 /* MeasureProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureProfile.swift; sourceTree = "<group>"; };
+		2FBD00461E54BB0D000AD9A9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		896C45CC9B58E012D4B82F51 /* Pods-SensorikaMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorikaMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-SensorikaMobile/Pods-SensorikaMobile.release.xcconfig"; sourceTree = "<group>"; };
+		CE010B68DE2480D4A9D867F0 /* Pods-SensorikaMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorikaMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SensorikaMobile/Pods-SensorikaMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		DE32EEA26EA33A493206F4A7 /* Pods_SensorikaMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SensorikaMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF37B9E6EA5013B268554512 /* Pods_SensorikaMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BEE63C781E547BDF169FDF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE010B68DE2480D4A9D867F0 /* Pods-SensorikaMobile.debug.xcconfig */,
+				896C45CC9B58E012D4B82F51 /* Pods-SensorikaMobile.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2F39EA631E3A2EBB0010F597 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +105,8 @@
 				2F39EA861E3A2EBB0010F597 /* SensorikaMobileTests */,
 				2F39EA911E3A2EBB0010F597 /* SensorikaMobileUITests */,
 				2F39EA6D1E3A2EBB0010F597 /* Products */,
+				1BEE63C781E547BDF169FDF3 /* Pods */,
+				557C30807EAAD4649D924FCA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,8 +123,11 @@
 		2F39EA6E1E3A2EBB0010F597 /* SensorikaMobile */ = {
 			isa = PBXGroup;
 			children = (
+				2FBD00451E54BB00000AD9A9 /* Support */,
+				2F89A4911E51D128004D9D7F /* Model */,
+				2F89A4931E51D130004D9D7F /* Controller */,
+				2F89A4921E51D12C004D9D7F /* View */,
 				2F39EA6F1E3A2EBB0010F597 /* AppDelegate.swift */,
-				2F39EA711E3A2EBB0010F597 /* ViewController.swift */,
 				2F39EA731E3A2EBB0010F597 /* Main.storyboard */,
 				2F39EA791E3A2EBB0010F597 /* Assets.xcassets */,
 				2F39EA7B1E3A2EBB0010F597 /* LaunchScreen.storyboard */,
@@ -128,6 +155,47 @@
 			path = SensorikaMobileUITests;
 			sourceTree = "<group>";
 		};
+		2F89A4911E51D128004D9D7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F89A4941E51D14A004D9D7F /* Measure.swift */,
+				2FBD00431E54B7DD000AD9A9 /* MeasureProfile.swift */,
+				2F89A4961E51D725004D9D7F /* Sensor.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2F89A4921E51D12C004D9D7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2F89A4931E51D130004D9D7F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2F39EA711E3A2EBB0010F597 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2FBD00451E54BB00000AD9A9 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2FBD00461E54BB0D000AD9A9 /* Extensions.swift */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		557C30807EAAD4649D924FCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE32EEA26EA33A493206F4A7 /* Pods_SensorikaMobile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F39EA971E3A2EBB0010F597 /* Build configuration list for PBXNativeTarget "SensorikaMobile" */;
 			buildPhases = (
+				F903578715057D3EB7F0C01B /* [CP] Check Pods Manifest.lock */,
 				2F39EA681E3A2EBB0010F597 /* Sources */,
 				2F39EA691E3A2EBB0010F597 /* Frameworks */,
 				2F39EA6A1E3A2EBB0010F597 /* Resources */,
+				56E7EC2F88B49ADBC5E91C09 /* [CP] Embed Pods Frameworks */,
+				7B9C33AE8113482812B27F83 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,14 +331,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		56E7EC2F88B49ADBC5E91C09 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SensorikaMobile/Pods-SensorikaMobile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B9C33AE8113482812B27F83 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SensorikaMobile/Pods-SensorikaMobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F903578715057D3EB7F0C01B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2F39EA681E3A2EBB0010F597 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2F39EA781E3A2EBB0010F597 /* SensorikaMobile.xcdatamodeld in Sources */,
+				2F89A4971E51D725004D9D7F /* Sensor.swift in Sources */,
 				2F39EA721E3A2EBB0010F597 /* ViewController.swift in Sources */,
+				2F89A4951E51D14A004D9D7F /* Measure.swift in Sources */,
+				2FBD00441E54B7DD000AD9A9 /* MeasureProfile.swift in Sources */,
 				2F39EA701E3A2EBB0010F597 /* AppDelegate.swift in Sources */,
+				2FBD00471E54BB0D000AD9A9 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +538,7 @@
 		};
 		2F39EA981E3A2EBB0010F597 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE010B68DE2480D4A9D867F0 /* Pods-SensorikaMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DSX6W75YR7;
@@ -423,11 +547,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = netsharks.SensorikaMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
 		2F39EA991E3A2EBB0010F597 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 896C45CC9B58E012D4B82F51 /* Pods-SensorikaMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DSX6W75YR7;
@@ -436,6 +562,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = netsharks.SensorikaMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
