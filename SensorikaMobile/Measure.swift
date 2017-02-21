@@ -135,12 +135,11 @@ class Measure
         if (useTimeMask)
         {
             if (mask_index >= _timeMaskValues!.count) { return (false, delta_freq) }
-            
             mask_time = _timeMaskValues![mask_index]
             
         } else { mask_time = Double(mask_index) }
         
-        let sens_max_time = timeMeasure![sens_index].count - 1
+        let sens_max_time = timeMeasure![sens_index].last ?? 0
         
         let result = (mask_time! >= 0) && (mask_time! <= Double(sens_max_time))
         
@@ -165,9 +164,9 @@ class Measure
             delta_freq = DeltaFreqByMask(sens_index: sens_index, mask_index: mask_index).delta_freq
             maxf = delta_freq!
             minf = maxf
+            mask_index += 1
             while (DeltaFreqByMask(sens_index: sens_index, mask_index: mask_index).0)
             {
-                mask_index += 1
                 delta_freq = DeltaFreqByMask(sens_index: sens_index, mask_index: mask_index).delta_freq
                 let time = Int(_timeMaskValues![mask_index])
                 
@@ -179,6 +178,7 @@ class Measure
                     minIndex![sens_index] = time
                     minf = delta_freq!
                 }
+                mask_index += 1
             }
             extremumIndex![sens_index] = (abs(minf) > abs(maxf)) ? minIndex![sens_index] : maxIndex![sens_index]
         }
@@ -188,6 +188,36 @@ class Measure
     {
         for i in 0..<usedSensors!.count { FindExtremumMinMax(sens_index: i) }
     }
+    
+    func CalculateSquare() -> Double {
+        var square = 0.0
+        var sensors = Array<Int>()
+        for i in 0..<self.usedSensors!.count {
+            if self.showSensor[i] { sensors.append(i) }
+        }
+        
+        let count = self.sensorsNumber
+        
+        if count > 0 {
+            let angle = Double.pi * 2 / Double(count)
+            var extremums = Array<Double>()
+            for i in 0..<count {
+                let s = sensors[i]
+                let tick = self.extremumIndex?[s]
+                let extremum = abs(self.DeltaF(sensnum: s, index: tick!))
+                extremums.append(extremum)
+                
+                if i > 0 {
+                    square += Global.TriangleSquare(a: extremums[i], b: extremums[i - 1], angle_rad: angle)
+                }
+            }
+            
+            square += Global.TriangleSquare(a: extremums[0], b: extremums[count - 1], angle_rad: angle)
+        }
+        
+        return square
+    }
+    
     
     func CalculateMeasureStatistic(calcSensorStatistic: Bool)
     {
@@ -246,6 +276,11 @@ class Measure
     
     func DeltaF(sensnum: Int, index: Int) -> Double
     {
+        guard freqMeasure![sensnum].count > index else {
+            print("index: \(index) sensnum: \(sensnum) count: \(freqMeasure![sensnum].count)")
+            return 0
+        }
+        
         return startFreq![sensnum] - freqMeasure![sensnum][index]
     }
     
@@ -303,6 +338,31 @@ class Measure
     
     var showSensor: [Bool] {
         get { return _showSensor! }
+    }
+}
+
+class MeasureObject: Object {
+    dynamic var id: Int = 1
+    dynamic var name: String = ""
+    dynamic var square: Double = 0
+    dynamic var mask: String = ""
+    let groupId = RealmOptional<Int>()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    func getMaskValues() -> Array<Double> {
+        var maskValues = Array<Double>()
+        let stringValues = self.mask.components(separatedBy: " ")
+        
+        for value in stringValues {
+            if let doubleValue = Double(value.replacingOccurrences(of: ",", with: ".")) {
+                maskValues.append(doubleValue)
+            }
+        }
+        
+        return maskValues
     }
 }
 

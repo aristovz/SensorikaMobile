@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="nodecell" rowHeight="65" id="KGk-i7-Jjw" customClass="TreeNodeCell" customModule="SensorikaMobile" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="458" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="458" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hM8-Fk-o0b">
+                        <rect key="frame" x="0.0" y="63" width="458" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="WRr-q7-wea"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tree_ec" translatesAutoresizingMaskIntoConstraints="NO" id="nEB-hX-WMp">
+                        <rect key="frame" x="8" y="25" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="nEB-hX-WMp" secondAttribute="height" multiplier="1:1" id="38L-MZ-K1N"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дом" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0W3-6m-DcA">
+                        <rect key="frame" x="31" y="21" width="40" height="23.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0W3-6m-DcA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2nu-7s-DCg"/>
+                    <constraint firstItem="nEB-hX-WMp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="FVw-uX-AE7"/>
+                    <constraint firstItem="0W3-6m-DcA" firstAttribute="centerY" secondItem="nEB-hX-WMp" secondAttribute="centerY" id="H5b-hl-9SN"/>
+                    <constraint firstAttribute="trailing" secondItem="hM8-Fk-o0b" secondAttribute="trailing" id="Lma-K0-w6A"/>
+                    <constraint firstItem="hM8-Fk-o0b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="RD7-VK-VyY"/>
+                    <constraint firstItem="0W3-6m-DcA" firstAttribute="leading" secondItem="nEB-hX-WMp" secondAttribute="trailing" constant="8" id="YwT-KD-YGZ"/>
+                    <constraint firstAttribute="bottom" secondItem="hM8-Fk-o0b" secondAttribute="bottom" id="bFw-n5-WFV"/>
+                    <constraint firstItem="nEB-hX-WMp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dH5-77-kga"/>
+                    <constraint firstItem="nEB-hX-WMp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="h1L-24-oER"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.1714230776" green="0.21891340610000001" blue="0.26995915170000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="background" destination="H2p-sc-9uM" id="sUE-Dr-cVM"/>
+                <outlet property="nodeIMG" destination="nEB-hX-WMp" id="hum-bA-g8g"/>
+                <outlet property="nodeName" destination="0W3-6m-DcA" id="mGK-BD-gfy"/>
+            </connections>
+            <point key="canvasLocation" x="275" y="360.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="tree_ec" width="32" height="32"/>
+    </resources>
+</document>

@@ -8,15 +8,41 @@
 
 import UIKit
 import CoreData
+import RealmSwift
+
+let uiRealm = try! Realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!.absoluteString)
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        let measures = Array(uiRealm.objects(MeasureObject.self))
+        
+        if measures.count == 0 {
+            let measures1 = [MeasureObject(value:["id" : MeasureObject.incrementID!, "name": "M - 1.1", "groupId" : -1, "mask" : "5 15 20 25 30 35 40 45 50 55 60"]),
+                             MeasureObject(value:["id" : MeasureObject.incrementID! + 1, "name": "M - 1", "mask" : "5 15 20 25 30"]),
+                             MeasureObject(value:["id" : MeasureObject.incrementID! + 2, "name": "M - 1.1.1", "groupId" : -3, "mask" : "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"])]
+            
+            let groups = [Group(value:["id" : Group.negativeIncrementID, "name": "G - 1"]),
+                          Group(value:["id" : Group.negativeIncrementID - 1, "name": "G - 1.1", "groupId" : -1]),
+                          Group(value:["id" : Group.negativeIncrementID - 2, "name": "G - 2"])]
+            
+            try! uiRealm.write {
+                uiRealm.add(measures1)
+                uiRealm.add(groups)
+            }
+        }
+        
+        Global.SENSORS.LoadSensor()
+        
         return true
     }
 

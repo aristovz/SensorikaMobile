@@ -40,7 +40,9 @@ class Sensor {
     //допустимое по паспорту отклонение от базовой частоты (амплитуда)
     var amp: Double = 0
     //сенсор активен, если он задействован в профиле измерения
-    var bActive = false
+    var bActive = true
+    
+    var delegate: SensorDelegate? = nil
     
     //string[] stabText = new string[6] { Global.GetString("SensorStable"), Global.GetString("SensorNotStable"), Global.GetString("FrequencyOutOfPassRange"), Global.GetString("NoData"), Global.GetString("CheckingSensorStability"), "" };
     
@@ -222,19 +224,23 @@ class Sensor {
             return Stability.OutOfRange;
         }
     }
-
-//    var StabilityText: String {
-//        get
-//        {
-//            if StabilityStatus == Stability.Stable { return stabText[0] }
-//            if StabilityStatus == Stability.NotStable { return stabText[1] }
-//            if StabilityStatus == Stability.OutOfRange { return stabText[2] }
-//            if StabilityStatus == Stability.NotDefined { return stabText[3] }
-//            if StabilityStatus == Stability.IsChecking { return stabText[4] }
-//            //StabilityStatus = Stability.IsMeasuring
-//            return stabText[5];
-//        }
-//    }
+    
+    func getStabilityColor() -> UIColor {
+        let status = self.StabilityStatus
+        
+        if (status == .IsChecking ||
+            status == .NotDefined ||
+            status == .IsMeasuring) {
+            return .lightGray
+        }
+        if (status == .NotStable) {
+            return .yellow
+        }
+        if (status == .OutOfRange) {
+            return .red
+        }
+        else { return .green }
+    }
     
     var ExtremumOfFreq: Double {
         get
@@ -260,14 +266,17 @@ class Sensor {
         self.EndMeasure();
     }
     
-    init(name: String, sid: String, id: Int, abbreviationi: String) {
-        InitData(name: name, sid: sid, id: id, abbreviation: abbreviation)
+    init(name: String, sid: String, id: Int, mainfreq: Double, amp: Double, abbreviation: String, color: UIColor) {
+        InitData(name: name, sid: sid, id: id, mainfreq: mainfreq, amp: amp, abbreviation: abbreviation, color: color)
     }
     
-    private func InitData(name: String, sid: String, id: Int, abbreviation: String) {
+    private func InitData(name: String, sid: String, id: Int, mainfreq: Double, amp: Double, abbreviation: String, color: UIColor) {
         self.name = name
         self.sid = sid
         self.id = id
+        self.mainfreq = mainfreq
+        self.amp = amp
+        self.color = color
         self.abbreviation = abbreviation
         bufferTimeMonitoring = Array<Double>()// new List<double>(bufferSize);
         bufferFreqMonitoring = Array<Double>()// new List<double>(bufferSize);
@@ -299,13 +308,17 @@ class Sensor {
     func ClearMeasureData() {
         bufferTimeMeasure.removeAll()
         bufferFreqMeasure.removeAll()
+        baseFreqSet = false
     }
     
     internal func AddSensorData(time: Date, freq: Double)
     {
         if !IsActive { return }
 
-        if !measureStarted { AddSensorDataMonitoring(time: time, freq: freq) }
+        if !measureStarted {
+            AddSensorDataMonitoring(time: time, freq: freq)
+            self.delegate?.sensor(self, didAddData: freq, time: time)
+        }
         else { AddSensorDataMeasure(time: time, freq: freq) }
     }
     
@@ -463,6 +476,23 @@ class Sensor {
     }
 }
 
+class SensorObject: Object {
+    dynamic var sid: String = ""
+    dynamic var name: String = ""
+    dynamic var abbreviation: String = ""
+    //dynamic var descript: String = ""
+    dynamic var id: Int = -1
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    dynamic var color: String = "000000"
+    
+    dynamic var mainfreq: Double = -1
+    dynamic var amp: Double = 0
+}
+
 class SensorsArray
 {
     var sensors: Array<Sensor?>
@@ -479,8 +509,50 @@ class SensorsArray
         }
     }
     
+    var count: Int {
+        get { return sensors.count }
+    }
+    
     var Items: Array<Sensor?> {
         get { return sensors }
+    }
+    
+    func LoadSensor(id: Int) {
+        if let sens = uiRealm.object(ofType: SensorObject.self, forPrimaryKey: id) {
+            for k in 0..<Global.SENSORS.count {
+                if Global.SENSORS[k]?.ID == id {
+                    Global.SENSORS[k] = Sensor(name: sens.name, sid: sens.sid, id: sens.id, mainfreq: sens.mainfreq, amp: sens.amp, abbreviation: sens.abbreviation, color: UIColor(hexString: sens.color))
+                }
+            }
+        }
+    }
+    
+    func LoadSensor()
+    {
+        let sensors = uiRealm.objects(SensorObject.self)
+        if sensors.count != 4 {
+            try! uiRealm.write {
+                for sensor in sensors {
+                    uiRealm.delete(sensor)
+                }
+                
+                let colors = ["4EDDE8", "941EBD", "EB008A", "006FE5"]
+                for k in 0..<4 {
+                    let freq: Double = 100.0 * Double(k + 1)
+                    let sens = SensorObject(value: ["id" : k, "name" : "Сенсор \(k + 1)", "sid" : "SID00\(k + 1)", "abbreviation" : "сенс\(k + 1)", "mainfreq" : freq, "amp" : 24, "color" : colors[k]])
+                    uiRealm.add(sens)
+                }
+                LoadSensor()
+            }
+        }
+        else {
+            Global.SENSORS.sensors.removeAll()
+            for sens in sensors {
+                let sensor = Sensor(name: sens.name, sid: sens.sid, id: sens.id, mainfreq: sens.mainfreq, amp: sens.amp, abbreviation: sens.abbreviation, color: UIColor(hexString: sens.color))
+                self.sensors.append(sensor)
+            }
+        }
+    
     }
     
     func GetByID(id: Int) -> Sensor? {
@@ -502,4 +574,8 @@ class SensorsArray
         
         return nil
     }
+}
+
+protocol SensorDelegate {
+    func sensor(_ sensor: Sensor, didAddData data: Double, time: Date)
 }

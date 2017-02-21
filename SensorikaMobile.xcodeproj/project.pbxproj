@@ -7,18 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0D7BC21E5CEA4400712969 /* AddPatternsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D7BC11E5CEA4400712969 /* AddPatternsController.swift */; };
+		2F26D1FB1E58EAC000620377 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D1F91E58EAC000620377 /* SettingsCell.swift */; };
+		2F26D1FC1E58EAC000620377 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F26D1FA1E58EAC000620377 /* SettingsCell.xib */; };
+		2F26D1FF1E59F66200620377 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D1FE1E59F66200620377 /* ColorPickerView.swift */; };
+		2F26D2011E5ACF7200620377 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D2001E5ACF7200620377 /* TreeNode.swift */; };
+		2F26D2031E5AD1E200620377 /* TreeNodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D2021E5AD1E200620377 /* TreeNodeHelper.swift */; };
 		2F39EA701E3A2EBB0010F597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA6F1E3A2EBB0010F597 /* AppDelegate.swift */; };
-		2F39EA721E3A2EBB0010F597 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA711E3A2EBB0010F597 /* ViewController.swift */; };
+		2F39EA721E3A2EBB0010F597 /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA711E3A2EBB0010F597 /* PagesViewController.swift */; };
 		2F39EA751E3A2EBB0010F597 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F39EA731E3A2EBB0010F597 /* Main.storyboard */; };
 		2F39EA781E3A2EBB0010F597 /* SensorikaMobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA761E3A2EBB0010F597 /* SensorikaMobile.xcdatamodeld */; };
 		2F39EA7A1E3A2EBB0010F597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F39EA791E3A2EBB0010F597 /* Assets.xcassets */; };
 		2F39EA7D1E3A2EBB0010F597 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F39EA7B1E3A2EBB0010F597 /* LaunchScreen.storyboard */; };
 		2F39EA881E3A2EBB0010F597 /* SensorikaMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA871E3A2EBB0010F597 /* SensorikaMobileTests.swift */; };
 		2F39EA931E3A2EBB0010F597 /* SensorikaMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA921E3A2EBB0010F597 /* SensorikaMobileUITests.swift */; };
+		2F3BFEBE1E5B1EDD00F8D055 /* ActiveMeasureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BFEBD1E5B1EDC00F8D055 /* ActiveMeasureController.swift */; };
+		2F77F3A21E5885D6002CF821 /* SensorMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77F3A11E5885D6002CF821 /* SensorMonitorView.swift */; };
+		2F84CF7E1E5C77E000C5F0B2 /* TimeMeasureChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84CF7D1E5C77E000C5F0B2 /* TimeMeasureChart.swift */; };
 		2F89A4951E51D14A004D9D7F /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89A4941E51D14A004D9D7F /* Measure.swift */; };
 		2F89A4971E51D725004D9D7F /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89A4961E51D725004D9D7F /* Sensor.swift */; };
+		2F8EE19F1E5BAE640049FF70 /* MeasureChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8EE19E1E5BAE640049FF70 /* MeasureChartView.swift */; };
+		2F8EE1A11E5BAE8D0049FF70 /* MeasureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8EE1A01E5BAE8D0049FF70 /* MeasureController.swift */; };
+		2F96A1CE1E560841000A34DD /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F96A1CD1E560841000A34DD /* Global.swift */; };
 		2FBD00441E54B7DD000AD9A9 /* MeasureProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD00431E54B7DD000AD9A9 /* MeasureProfile.swift */; };
 		2FBD00471E54BB0D000AD9A9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBD00461E54BB0D000AD9A9 /* Extensions.swift */; };
+		2FD45AB71E5AD7F10030F40C /* TreeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD45AB61E5AD7F10030F40C /* TreeTableView.swift */; };
+		2FD45ABA1E5AD9960030F40C /* TreeNodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FD45AB81E5AD9960030F40C /* TreeNodeCell.xib */; };
+		2FD45ABB1E5AD9960030F40C /* TreeNodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD45AB91E5AD9960030F40C /* TreeNodeCell.swift */; };
+		2FD45ABE1E5ADDA00030F40C /* DataInof.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FD45ABD1E5ADDA00030F40C /* DataInof.plist */; };
+		2FD45AC01E5AE75E0030F40C /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD45ABF1E5AE75E0030F40C /* Group.swift */; };
+		2FD45AC61E5B07300030F40C /* MeasureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD45AC41E5B07300030F40C /* MeasureCell.swift */; };
+		2FD45AC71E5B07300030F40C /* MeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FD45AC51E5B07300030F40C /* MeasureCell.xib */; };
+		2FDFC4FF1E561840004C9E75 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFC4FE1E561840004C9E75 /* MainController.swift */; };
+		2FDFC5011E56186C004C9E75 /* PatternsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFC5001E56186C004C9E75 /* PatternsController.swift */; };
+		2FFA14041E570895006B183A /* MonitoringChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA14031E570894006B183A /* MonitoringChartView.swift */; };
+		2FFA14061E576EFE006B183A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA14051E576EFE006B183A /* SettingsController.swift */; };
+		2FFA140E1E5775F5006B183A /* SettingsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA140D1E5775F5006B183A /* SettingsDetailController.swift */; };
 		DF37B9E6EA5013B268554512 /* Pods_SensorikaMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32EEA26EA33A493206F4A7 /* Pods_SensorikaMobile.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,9 +64,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F0D7BC11E5CEA4400712969 /* AddPatternsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPatternsController.swift; sourceTree = "<group>"; };
+		2F26D1F91E58EAC000620377 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		2F26D1FA1E58EAC000620377 /* SettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		2F26D1FE1E59F66200620377 /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		2F26D2001E5ACF7200620377 /* TreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
+		2F26D2021E5AD1E200620377 /* TreeNodeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNodeHelper.swift; sourceTree = "<group>"; };
 		2F39EA6C1E3A2EBB0010F597 /* SensorikaMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SensorikaMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F39EA6F1E3A2EBB0010F597 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2F39EA711E3A2EBB0010F597 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2F39EA711E3A2EBB0010F597 /* PagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
 		2F39EA741E3A2EBB0010F597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F39EA771E3A2EBB0010F597 /* SensorikaMobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SensorikaMobile.xcdatamodel; sourceTree = "<group>"; };
 		2F39EA791E3A2EBB0010F597 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,10 +84,28 @@
 		2F39EA8E1E3A2EBB0010F597 /* SensorikaMobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SensorikaMobileUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F39EA921E3A2EBB0010F597 /* SensorikaMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorikaMobileUITests.swift; sourceTree = "<group>"; };
 		2F39EA941E3A2EBB0010F597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F3BFEBD1E5B1EDC00F8D055 /* ActiveMeasureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveMeasureController.swift; sourceTree = "<group>"; };
+		2F77F3A11E5885D6002CF821 /* SensorMonitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMonitorView.swift; sourceTree = "<group>"; };
+		2F84CF7D1E5C77E000C5F0B2 /* TimeMeasureChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMeasureChart.swift; sourceTree = "<group>"; };
 		2F89A4941E51D14A004D9D7F /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		2F89A4961E51D725004D9D7F /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sensor.swift; sourceTree = "<group>"; };
+		2F8EE19E1E5BAE640049FF70 /* MeasureChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureChartView.swift; sourceTree = "<group>"; };
+		2F8EE1A01E5BAE8D0049FF70 /* MeasureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureController.swift; sourceTree = "<group>"; };
+		2F96A1CD1E560841000A34DD /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		2FBD00431E54B7DD000AD9A9 /* MeasureProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureProfile.swift; sourceTree = "<group>"; };
 		2FBD00461E54BB0D000AD9A9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2FD45AB61E5AD7F10030F40C /* TreeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTableView.swift; sourceTree = "<group>"; };
+		2FD45AB81E5AD9960030F40C /* TreeNodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TreeNodeCell.xib; sourceTree = "<group>"; };
+		2FD45AB91E5AD9960030F40C /* TreeNodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNodeCell.swift; sourceTree = "<group>"; };
+		2FD45ABD1E5ADDA00030F40C /* DataInof.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataInof.plist; sourceTree = "<group>"; };
+		2FD45ABF1E5AE75E0030F40C /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		2FD45AC41E5B07300030F40C /* MeasureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureCell.swift; sourceTree = "<group>"; };
+		2FD45AC51E5B07300030F40C /* MeasureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureCell.xib; sourceTree = "<group>"; };
+		2FDFC4FE1E561840004C9E75 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		2FDFC5001E56186C004C9E75 /* PatternsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatternsController.swift; sourceTree = "<group>"; };
+		2FFA14031E570894006B183A /* MonitoringChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonitoringChartView.swift; sourceTree = "<group>"; };
+		2FFA14051E576EFE006B183A /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		2FFA140D1E5775F5006B183A /* SettingsDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDetailController.swift; sourceTree = "<group>"; };
 		896C45CC9B58E012D4B82F51 /* Pods-SensorikaMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorikaMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-SensorikaMobile/Pods-SensorikaMobile.release.xcconfig"; sourceTree = "<group>"; };
 		CE010B68DE2480D4A9D867F0 /* Pods-SensorikaMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SensorikaMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SensorikaMobile/Pods-SensorikaMobile.debug.xcconfig"; sourceTree = "<group>"; };
 		DE32EEA26EA33A493206F4A7 /* Pods_SensorikaMobile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SensorikaMobile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +144,15 @@
 				896C45CC9B58E012D4B82F51 /* Pods-SensorikaMobile.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		2F26D1FD1E58EACF00620377 /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				2F26D1F91E58EAC000620377 /* SettingsCell.swift */,
+				2F26D1FA1E58EAC000620377 /* SettingsCell.xib */,
+			);
+			name = SettingsCell;
 			sourceTree = "<group>";
 		};
 		2F39EA631E3A2EBB0010F597 = {
@@ -155,12 +212,23 @@
 			path = SensorikaMobileUITests;
 			sourceTree = "<group>";
 		};
+		2F84CF7C1E5C77AA00C5F0B2 /* MeasureCharts */ = {
+			isa = PBXGroup;
+			children = (
+				2F8EE19E1E5BAE640049FF70 /* MeasureChartView.swift */,
+				2F84CF7D1E5C77E000C5F0B2 /* TimeMeasureChart.swift */,
+			);
+			name = MeasureCharts;
+			sourceTree = "<group>";
+		};
 		2F89A4911E51D128004D9D7F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2FD45AB31E5AD7800030F40C /* TreeNode */,
 				2F89A4941E51D14A004D9D7F /* Measure.swift */,
 				2FBD00431E54B7DD000AD9A9 /* MeasureProfile.swift */,
 				2F89A4961E51D725004D9D7F /* Sensor.swift */,
+				2FD45ABF1E5AE75E0030F40C /* Group.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -168,6 +236,11 @@
 		2F89A4921E51D12C004D9D7F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2F84CF7C1E5C77AA00C5F0B2 /* MeasureCharts */,
+				2FD45AB51E5AD7D10030F40C /* TreeNode */,
+				2FFA14031E570894006B183A /* MonitoringChartView.swift */,
+				2F77F3A11E5885D6002CF821 /* SensorMonitorView.swift */,
+				2F26D1FE1E59F66200620377 /* ColorPickerView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -175,7 +248,13 @@
 		2F89A4931E51D130004D9D7F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2F39EA711E3A2EBB0010F597 /* ViewController.swift */,
+				2FFA14071E576F43006B183A /* SettingsController */,
+				2F39EA711E3A2EBB0010F597 /* PagesViewController.swift */,
+				2FDFC4FE1E561840004C9E75 /* MainController.swift */,
+				2FDFC5001E56186C004C9E75 /* PatternsController.swift */,
+				2F3BFEBD1E5B1EDC00F8D055 /* ActiveMeasureController.swift */,
+				2F8EE1A01E5BAE8D0049FF70 /* MeasureController.swift */,
+				2F0D7BC11E5CEA4400712969 /* AddPatternsController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -184,8 +263,57 @@
 			isa = PBXGroup;
 			children = (
 				2FBD00461E54BB0D000AD9A9 /* Extensions.swift */,
+				2F96A1CD1E560841000A34DD /* Global.swift */,
 			);
 			name = Support;
+			sourceTree = "<group>";
+		};
+		2FD45AB31E5AD7800030F40C /* TreeNode */ = {
+			isa = PBXGroup;
+			children = (
+				2FD45ABD1E5ADDA00030F40C /* DataInof.plist */,
+				2F26D2001E5ACF7200620377 /* TreeNode.swift */,
+				2F26D2021E5AD1E200620377 /* TreeNodeHelper.swift */,
+			);
+			name = TreeNode;
+			sourceTree = "<group>";
+		};
+		2FD45AB51E5AD7D10030F40C /* TreeNode */ = {
+			isa = PBXGroup;
+			children = (
+				2FD45AC31E5B07160030F40C /* MeasureCell */,
+				2FD45ABC1E5AD9A10030F40C /* TreeNodeCell */,
+				2FD45AB61E5AD7F10030F40C /* TreeTableView.swift */,
+			);
+			name = TreeNode;
+			sourceTree = "<group>";
+		};
+		2FD45ABC1E5AD9A10030F40C /* TreeNodeCell */ = {
+			isa = PBXGroup;
+			children = (
+				2FD45AB81E5AD9960030F40C /* TreeNodeCell.xib */,
+				2FD45AB91E5AD9960030F40C /* TreeNodeCell.swift */,
+			);
+			name = TreeNodeCell;
+			sourceTree = "<group>";
+		};
+		2FD45AC31E5B07160030F40C /* MeasureCell */ = {
+			isa = PBXGroup;
+			children = (
+				2FD45AC51E5B07300030F40C /* MeasureCell.xib */,
+				2FD45AC41E5B07300030F40C /* MeasureCell.swift */,
+			);
+			name = MeasureCell;
+			sourceTree = "<group>";
+		};
+		2FFA14071E576F43006B183A /* SettingsController */ = {
+			isa = PBXGroup;
+			children = (
+				2F26D1FD1E58EACF00620377 /* SettingsCell */,
+				2FFA14051E576EFE006B183A /* SettingsController.swift */,
+				2FFA140D1E5775F5006B183A /* SettingsDetailController.swift */,
+			);
+			name = SettingsController;
 			sourceTree = "<group>";
 		};
 		557C30807EAAD4649D924FCA /* Frameworks */ = {
@@ -263,11 +391,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = NetSharks;
+				ORGANIZATIONNAME = aristovz;
 				TargetAttributes = {
 					2F39EA6B1E3A2EBB0010F597 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = DSX6W75YR7;
+						DevelopmentTeam = Z76ZV82BGX;
 						ProvisioningStyle = Automatic;
 					};
 					2F39EA821E3A2EBB0010F597 = {
@@ -309,9 +437,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FD45ABE1E5ADDA00030F40C /* DataInof.plist in Resources */,
 				2F39EA7D1E3A2EBB0010F597 /* LaunchScreen.storyboard in Resources */,
 				2F39EA7A1E3A2EBB0010F597 /* Assets.xcassets in Resources */,
+				2F26D1FC1E58EAC000620377 /* SettingsCell.xib in Resources */,
+				2FD45AC71E5B07300030F40C /* MeasureCell.xib in Resources */,
 				2F39EA751E3A2EBB0010F597 /* Main.storyboard in Resources */,
+				2FD45ABA1E5AD9960030F40C /* TreeNodeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,13 +516,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8EE19F1E5BAE640049FF70 /* MeasureChartView.swift in Sources */,
+				2FD45AC01E5AE75E0030F40C /* Group.swift in Sources */,
+				2FFA14061E576EFE006B183A /* SettingsController.swift in Sources */,
+				2FD45AC61E5B07300030F40C /* MeasureCell.swift in Sources */,
+				2F96A1CE1E560841000A34DD /* Global.swift in Sources */,
+				2F26D2011E5ACF7200620377 /* TreeNode.swift in Sources */,
+				2FD45ABB1E5AD9960030F40C /* TreeNodeCell.swift in Sources */,
+				2F26D2031E5AD1E200620377 /* TreeNodeHelper.swift in Sources */,
 				2F39EA781E3A2EBB0010F597 /* SensorikaMobile.xcdatamodeld in Sources */,
+				2FD45AB71E5AD7F10030F40C /* TreeTableView.swift in Sources */,
 				2F89A4971E51D725004D9D7F /* Sensor.swift in Sources */,
-				2F39EA721E3A2EBB0010F597 /* ViewController.swift in Sources */,
+				2F8EE1A11E5BAE8D0049FF70 /* MeasureController.swift in Sources */,
+				2F39EA721E3A2EBB0010F597 /* PagesViewController.swift in Sources */,
+				2FDFC4FF1E561840004C9E75 /* MainController.swift in Sources */,
 				2F89A4951E51D14A004D9D7F /* Measure.swift in Sources */,
+				2FFA140E1E5775F5006B183A /* SettingsDetailController.swift in Sources */,
+				2F3BFEBE1E5B1EDD00F8D055 /* ActiveMeasureController.swift in Sources */,
+				2FDFC5011E56186C004C9E75 /* PatternsController.swift in Sources */,
+				2F0D7BC21E5CEA4400712969 /* AddPatternsController.swift in Sources */,
+				2F26D1FF1E59F66200620377 /* ColorPickerView.swift in Sources */,
+				2FFA14041E570895006B183A /* MonitoringChartView.swift in Sources */,
 				2FBD00441E54B7DD000AD9A9 /* MeasureProfile.swift in Sources */,
 				2F39EA701E3A2EBB0010F597 /* AppDelegate.swift in Sources */,
+				2F84CF7E1E5C77E000C5F0B2 /* TimeMeasureChart.swift in Sources */,
 				2FBD00471E54BB0D000AD9A9 /* Extensions.swift in Sources */,
+				2F77F3A21E5885D6002CF821 /* SensorMonitorView.swift in Sources */,
+				2F26D1FB1E58EAC000620377 /* SettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,10 +693,10 @@
 			baseConfigurationReference = CE010B68DE2480D4A9D867F0 /* Pods-SensorikaMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DSX6W75YR7;
+				DEVELOPMENT_TEAM = Z76ZV82BGX;
 				INFOPLIST_FILE = SensorikaMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = netsharks.SensorikaMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = aristovz.SensorikaMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				USE_HEADERMAP = NO;
@@ -556,10 +708,10 @@
 			baseConfigurationReference = 896C45CC9B58E012D4B82F51 /* Pods-SensorikaMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = DSX6W75YR7;
+				DEVELOPMENT_TEAM = Z76ZV82BGX;
 				INFOPLIST_FILE = SensorikaMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = netsharks.SensorikaMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = aristovz.SensorikaMobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				USE_HEADERMAP = NO;
