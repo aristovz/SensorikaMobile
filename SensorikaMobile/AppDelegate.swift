@@ -18,32 +18,112 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+    let welcomeStoryBoard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
+    
+    let freqs = [[0, 0, 0, 0, 0, -1, -2],
+                 [0, 0, -1, -1, 0, 0, -1],
+                 [0, 0, -1, -1, 0, -2, -2],
+                 [0, 1, 0, 0, 0, -1, 0]]
+    let names = ["Clean room", "Стандарт", "Детская", "Салон авто", "ПВХ"]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         print(Realm.Configuration.defaultConfiguration.fileURL!.absoluteString)
         UIApplication.shared.statusBarStyle = .lightContent
         
+        if UserDefaults.standard.bool(forKey: "didShowTutorial") {
+            loadMainStoryboard()
+        }
+        else {
+            loadTutorialStoryBoard()
+        }
+        
+        
+        return true
+    }
+    
+    func loadTutorialStoryBoard() {
+        let storyboard = UIStoryboard(name: "WelcomeStoryboard", bundle: nil)
+        if let controller = storyboard.instantiateInitialViewController() {
+            self.window?.rootViewController = controller
+        }
+    }
+    
+    func loadMainStoryboard() {
+        Global.SENSORS.LoadSensor()
+        loadStartData()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let controller = storyboard.instantiateInitialViewController() {
+            self.window?.rootViewController = controller
+        }
+    }
+    
+    func loadStartData() {
         let measures = Array(uiRealm.objects(MeasureObject.self))
         
         if measures.count == 0 {
-            let measures1 = [MeasureObject(value:["id" : MeasureObject.incrementID!, "name": "M - 1.1", "groupId" : -1, "mask" : "5 15 20 25 30 35 40 45 50 55 60"]),
-                             MeasureObject(value:["id" : MeasureObject.incrementID! + 1, "name": "M - 1", "mask" : "5 15 20 25 30"]),
-                             MeasureObject(value:["id" : MeasureObject.incrementID! + 2, "name": "M - 1.1.1", "groupId" : -3, "mask" : "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"])]
-            
-            let groups = [Group(value:["id" : Group.negativeIncrementID, "name": "G - 1"]),
-                          Group(value:["id" : Group.negativeIncrementID - 1, "name": "G - 1.1", "groupId" : -1]),
-                          Group(value:["id" : Group.negativeIncrementID - 2, "name": "G - 2"])]
-            
             try! uiRealm.write {
-                uiRealm.add(measures1)
+                for k in 0..<names.count {
+                    let measure = MeasureObject(value:["id" : MeasureObject.incrementID!, "name": names[k], "groupId" : -4, "mask" : Global.standartMask])
+                    
+                    for k in 0..<Global.SENSORS.sensors.count {
+                        let startFreqData = FreqDataObject()
+                        startFreqData.id = FreqDataObject.incrementID!
+                        startFreqData.measure = measure
+                        startFreqData.freqValue = 0
+                        startFreqData.timeValue = -1
+                        startFreqData.sensorId = Global.SENSORS[k]!.ID
+                        
+                        measure.freqData.append(startFreqData)
+                        uiRealm.add(startFreqData)
+                        
+                        var index = 0
+                        for s in 0..<61 {
+                            if s <= 4 {
+                                index = 0
+                            }
+                            else if s <= 6 {
+                                index = 1
+                            }
+                            else if s <= 8 {
+                                index = 2
+                            }
+                            else if s <= 10 {
+                                index = 3
+                            }
+                            else if s <= 20 {
+                                index = 4
+                            }
+                            else if s <= 40 {
+                                index = 5
+                            }
+                            else {
+                                index = 6
+                            }
+                            
+                            let freqData = FreqDataObject()
+                            freqData.id = FreqDataObject.incrementID!
+                            freqData.measure = measure
+                            freqData.freqValue = Double(freqs[k][index])
+                            freqData.timeValue = Double(s)
+                            freqData.sensorId = Global.SENSORS[k]!.ID
+                            
+                            measure.freqData.append(freqData)
+                            uiRealm.add(freqData)
+                        }
+                    }
+                    uiRealm.add(measure)
+                }
+                
+                let groups = [Group(value:["id" : Group.negativeIncrementID, "name": "Дом"]),
+                              Group(value:["id" : Group.negativeIncrementID - 1, "name": "Офис"]),
+                              Group(value:["id" : Group.negativeIncrementID - 2, "name": "Ресторан"]),
+                              Group(value:["id" : Group.negativeIncrementID - 3, "name": "Полимер"])]
+                
                 uiRealm.add(groups)
             }
         }
-        
-        Global.SENSORS.LoadSensor()
-        
-        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

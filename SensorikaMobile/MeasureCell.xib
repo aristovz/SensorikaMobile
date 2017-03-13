@@ -17,15 +17,9 @@
             <rect key="frame" x="0.0" y="0.0" width="458" height="65"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Wx-eb-RpY" id="0ZI-A9-QTl">
-                <rect key="frame" x="0.0" y="0.0" width="458" height="65"/>
+                <rect key="frame" x="0.0" y="0.0" width="458" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Базовая частота:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELS-jh-E0e">
-                        <rect key="frame" x="40" y="32" width="410" height="24"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBt-Uy-Isg">
                         <rect key="frame" x="0.0" y="63.5" width="458" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,7 +34,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сенсор 1 [SID0001]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNb-vC-di6">
-                        <rect key="frame" x="40" y="8" width="410" height="24"/>
+                        <rect key="frame" x="40" y="20.5" width="410" height="24"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -49,23 +43,18 @@
                 <constraints>
                     <constraint firstItem="X1n-Gv-dXi" firstAttribute="top" secondItem="0ZI-A9-QTl" secondAttribute="top" constant="20" id="5Qx-eh-G96"/>
                     <constraint firstAttribute="bottom" secondItem="mBt-Uy-Isg" secondAttribute="bottom" id="AnL-8E-Lap"/>
-                    <constraint firstItem="ELS-jh-E0e" firstAttribute="leading" secondItem="eNb-vC-di6" secondAttribute="leading" id="Jf4-Fd-457"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ELS-jh-E0e" secondAttribute="trailing" id="Nf4-dQ-SBO"/>
                     <constraint firstAttribute="trailing" secondItem="mBt-Uy-Isg" secondAttribute="trailing" id="V8l-E7-tM4"/>
-                    <constraint firstItem="ELS-jh-E0e" firstAttribute="height" secondItem="eNb-vC-di6" secondAttribute="height" id="Wbf-ls-geS"/>
                     <constraint firstItem="X1n-Gv-dXi" firstAttribute="centerY" secondItem="0ZI-A9-QTl" secondAttribute="centerY" id="dZx-nC-NRS"/>
-                    <constraint firstItem="eNb-vC-di6" firstAttribute="top" secondItem="0ZI-A9-QTl" secondAttribute="topMargin" id="dle-hS-M0S"/>
-                    <constraint firstItem="ELS-jh-E0e" firstAttribute="top" secondItem="eNb-vC-di6" secondAttribute="bottom" id="eXt-Io-4Z2"/>
                     <constraint firstItem="mBt-Uy-Isg" firstAttribute="leading" secondItem="0ZI-A9-QTl" secondAttribute="leading" id="ikq-eO-jZX"/>
                     <constraint firstAttribute="leadingMargin" secondItem="X1n-Gv-dXi" secondAttribute="leading" id="ogL-eF-zBR"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eNb-vC-di6" secondAttribute="trailing" id="sCH-fg-C9M"/>
                     <constraint firstItem="eNb-vC-di6" firstAttribute="leading" secondItem="X1n-Gv-dXi" secondAttribute="trailing" constant="8" id="tXE-sf-DoQ"/>
+                    <constraint firstItem="eNb-vC-di6" firstAttribute="centerY" secondItem="0ZI-A9-QTl" secondAttribute="centerY" id="v4j-QQ-haG"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.1450980392" green="0.1843137255" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="background" destination="0ZI-A9-QTl" id="3XS-hr-Hiv"/>
-                <outlet property="descriptionLabel" destination="ELS-jh-E0e" id="gYO-4X-s8j"/>
                 <outlet property="nameLabel" destination="eNb-vC-di6" id="Tn0-hK-wUS"/>
             </connections>
             <point key="canvasLocation" x="198" y="117.5"/>

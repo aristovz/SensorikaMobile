@@ -10,14 +10,31 @@ import UIKit
 import XLPagerTabStrip
 import RealmSwift
 
-class PatternsController: UIViewController, IndicatorInfoProvider, TreeTableViewDelegate {
+class PatternsController: UIViewController, IndicatorInfoProvider, TreeTableViewDelegate, UITextFieldDelegate {
     
     var itemInfo: IndicatorInfo = "Шаблоны"
     
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var addItemView: UIView!
     @IBOutlet weak var treeTableView: TreeTableView!
     
+    @IBOutlet weak var namePatternField: UITextField!
+    
+    var effect:UIVisualEffect!
+    
+    @IBOutlet weak var startButtonOutlet: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        visualEffectView.alpha = 0
+        effect = visualEffectView.effect
+        visualEffectView.effect = nil
+        
+        addItemView.layer.cornerRadius = 5
+        startButtonOutlet.layer.cornerRadius = startButtonOutlet.frame.height / 2
+        
+        startButtonOutlet.layer.borderWidth = 1
+        startButtonOutlet.layer.borderColor = UIColor.buttonBorder.cgColor
         
         treeTableView.treeTableDelegate = self
         
@@ -44,16 +61,54 @@ class PatternsController: UIViewController, IndicatorInfoProvider, TreeTableView
         treeTableView.loadData(nodes)
     }
     
-    func addPattern() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "addPatternsController") as! AddPatternsController
+    func animateIn() {
+        addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        addItemView.alpha = 0
         
-        present(vc, animated: true, completion: nil)
+        UIView.animate(withDuration: 0.4) {
+            self.visualEffectView.effect = self.effect
+            self.visualEffectView.alpha = 1
+            self.addItemView.alpha = 1
+            self.addItemView.transform = CGAffineTransform.identity
+        }
+        
     }
+    func animateOut () {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.addItemView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.addItemView.alpha = 0
+            
+            self.visualEffectView.alpha = 0
+            self.visualEffectView.effect = nil
+            
+        })
+    }
+    
+    func addPattern() {
+        animateIn()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            self.addItemView.transform = CGAffineTransform(translationX: 0, y: 0)
+        }, completion: nil)
+        
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+            self.addItemView.transform = CGAffineTransform(translationX: 0, y: -80)
+        }, completion: nil)
+    }
+
     
     func treeTableView(_ treeTabelView: TreeTableView, didSelectItem item: TreeNode) {
         if let measure = uiRealm.object(ofType: MeasureObject.self, forPrimaryKey: item.id) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "addPatternsController") as! AddPatternsController
-            vc.currentMeasure = measure
+            vc.currentMeasureObject = measure
             
             present(vc, animated: true, completion: nil)
         }
@@ -62,4 +117,26 @@ class PatternsController: UIViewController, IndicatorInfoProvider, TreeTableView
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
     }
+    
+    @IBAction func startButton(_ sender: UIButton) {
+        guard namePatternField.text != "" else {
+            namePatternField.shake()
+            return
+        }
+        
+        let vc = Global.appDelegate.mainStoryBoard.instantiateViewController(withIdentifier: "activeMeasureNavController") as! UINavigationController
+        
+        let newMeasure = MeasureObject(value: ["id" : MeasureObject.incrementID!, "name" : namePatternField.text!, "mask" : Global.standartMask])
+        (vc.viewControllers[0] as! ActiveMeasureController).newMeasure = newMeasure
+        
+        let mask = newMeasure.getMaskValues()
+        if mask.count != 0 {
+            Global.measureLength = Int(mask.last!)
+        }
+        
+        namePatternField.text = ""
+        animateOut()
+        present(vc, animated: true, completion: nil)
+    }
+    
 }

@@ -14,7 +14,6 @@ class MeasureChartView: LineChartView {
     func setChart() {
         //self.backgroundColor = .clear
         
-        
         self.noDataText = ""
         self.chartDescription?.text = ""
         self.legend.enabled = true
@@ -23,6 +22,7 @@ class MeasureChartView: LineChartView {
         self.backgroundColor = UIColor.background
         
         self.legend.textColor = .white
+        self.legend.font = self.legend.font.withSize(15)
         
         self.leftAxis.drawGridLinesEnabled = true
         self.leftAxis.labelFont = UIFont(name: "HelveticaNeue-Light", size: 14)!
@@ -42,6 +42,9 @@ class MeasureChartView: LineChartView {
         self.scaleXEnabled = true
         self.pinchZoomEnabled = true
         self.doubleTapToZoomEnabled = false
+        
+        self.leftAxis.granularityEnabled = true
+        self.leftAxis.granularity = 1.0
     }
     
     class func setChartDataSet(dataSet: LineChartDataSet, color: UIColor = .white) {
@@ -53,7 +56,7 @@ class MeasureChartView: LineChartView {
         //dataSet.drawVerticalHighlightIndicatorEnabled = true
         
         //chartDataSet.cubicIntensity = 0.7
-        dataSet.mode = .linear
+        dataSet.mode = .horizontalBezier
     }
     
 }

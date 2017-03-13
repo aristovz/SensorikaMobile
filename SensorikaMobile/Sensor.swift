@@ -424,7 +424,6 @@ class Sensor {
         
         //время с момента первого отсчета
         let duration = time.timeIntervalSince(startMeasureTime)
-        
         //в режиме измерения данные добавляются до конца измерения
         self.bufferTimeMeasure.append(duration)
         self.bufferFreqMeasure.append(freq)

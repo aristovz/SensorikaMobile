@@ -24,13 +24,17 @@ class ActiveMeasureController: UIViewController {
     
     @IBOutlet weak var measureButtonOutlet: UIButton!
     
+    @IBOutlet weak var saveButtonOutlet: UIButton!
+    
     @IBOutlet weak var ativityIndicator: UIActivityIndicatorView!
     
     var timer: Timer!
-    var timerTick = 0
+    //var timerTick = 0
     
-    var standartMeasure: MeasureObject? = nil
+    var standartMeasureObject: MeasureObject? = nil
+    var standartMeasure: Measure? = nil
     let currentMeasure = Measure(number_of_used_sensors: 4)
+    var newMeasure: MeasureObject? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,50 +46,118 @@ class ActiveMeasureController: UIViewController {
         measureButtonOutlet.layer.borderWidth = 3
         measureButtonOutlet.layer.borderColor = UIColor.buttonBorder.cgColor
         
-        if let measure = standartMeasure {
-            standartSquare.text = String(format: "%g", measure.square)
+        saveButtonOutlet.layer.borderWidth = 1
+        saveButtonOutlet.layer.borderColor = UIColor.buttonBorder.cgColor
+        saveButtonOutlet.setTitleColor(.gray, for: .normal)
+        
+        saveButtonOutlet.isEnabled = false
+        
+        if let measure = standartMeasureObject {
+            standartMeasure = Measure(measureObject: measure, sensArray: Global.SENSORS)
+            standartMeasure?.SetTimeMask(mrows: measure.getMaskValues())
+            
+            standartSquare.text = String(format: "%g", standartMeasure!.CalculateSquare())
             standartNameLabel.text = "Стандарт: \(measure.name)"
+        }
+        
+        if newMeasure != nil {
+            saveButtonOutlet.isHidden = false
+            standartSquare.isHidden = true
+            standartNameLabel.isHidden = true
+        }
+        else {
+            saveButtonOutlet.isHidden = true
+            standartSquare.isHidden = false
+            standartNameLabel.isHidden = false
         }
         
         Global.SENSORS.Items.map { $0?.StartMeasure() }
         
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
+        for k in 0..<Global.SENSORS.sensors.count {
+            Global.SENSORS[k]?.AddSensorData(time: Date(), freq: 0)//(sensor?.mainfreq ?? 0)  - 25.0 + randomNum)
+        }
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(runTimedCode), userInfo: Date(), repeats: true)
         
         ativityIndicator.startAnimating()
     }
     
-    let freqs = [
-        [9981034.0,9981034.0,9981033.0,9981034.0,9981034.0,9981034.0,9981034.0,9981033.0,9981034.0,9981034.0,9981033.0,9981034.0,9981033.0,9981034.0,9981034.0,9981034.0,9981034.0,9981033.0,9981034.0,9981033.0,9981034.0,9981034.0,9981034.0,9981034.0,9981034.0,9981034.0,9981034.0,9981034.0,9981033.0,9981034.0,9981034.0,9981034.0,9981033.0,9981034.0,9981033.0,9981033.0,9981034.0,9981033.0,9981034.0,9981034.0,9981034.0,9981034.0,9981033.0,9981034.0,9981034.0,9981034.0,9981033.0,9981033.0,9981034.0,9981034.0,9981034.0,9981033.0,9981033.0,9981033.0,9981033.0,9981033.0,9981033.0,9981033.0,9981033.0,9981033.0,9981033.0,9981034.0],
-        [9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984472.0,9984473.0,9984473.0,9984473.0,9984472.0,9984472.0,9984473.0,9984473.0,9984472.0,9984472.0,9984472.0,9984473.0,9984473.0,9984472.0,9984472.0,9984472.0,9984473.0,9984473.0,9984472.0,9984472.0,9984473.0,9984473.0,9984473.0,9984473.0,9984472.0,9984473.0,9984472.0,9984473.0,9984473.0,9984472.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0,9984473.0],
-        [9988596.0,9988596.0,9988597.0,9988596.0,9988597.0,9988596.0,9988597.0,9988597.0,9988596.0,9988597.0,9988597.0,9988597.0,9988597.0,9988597.0,9988597.0,9988597.0,9988597.0,9988597.0,9988597.0,9988597.0,9988597.0,9988597.0,9988598.0,9988597.0,9988597.0,9988598.0,9988597.0,9988597.0,9988598.0,9988597.0,9988598.0,9988597.0,9988598.0,9988597.0,9988598.0,9988597.0,9988598.0,9988598.0,9988597.0,9988598.0,9988598.0,9988597.0,9988598.0,9988598.0,9988598.0,9988597.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0,9988598.0],
-        [9983284.0,9983285.0,9983284.0,9983285.0,9983284.0,9983285.0,9983285.0,9983284.0,9983285.0,9983285.0,9983284.0,9983284.0,9983285.0,9983285.0,9983284.0,9983284.0,9983284.0,9983284.0,9983285.0,9983285.0,9983285.0,9983285.0,9983284.0,9983284.0,9983284.0,9983284.0,9983284.0,9983284.0,9983284.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983284.0,9983285.0,9983285.0,9983284.0,9983284.0,9983284.0,9983284.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0,9983285.0]
-    ]
-    
-//    let times
+    let freqs = [[[0, 0, 0, 0, 0, -1, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [0, 0, 0, 0, 0, 0, 0],
+                  [-1, -1, 0, 0, 0, 0, 0]],
+                 [[0, 0, 0, 0, 0, -1, -2],
+                  [0, 0, -1, -1, 0, 0, -1],
+                  [0, 0, -1, -1, 0, -2, -2],
+                  [0, 1, 0, 0, 0, -1, 0]],
+                 [[0, 0, 0, -1, -1, -1, -2],
+                  [0, -1, -1, -1, -1, -2, -2],
+                  [0, -1, -1, 1, -1, -2, -2],
+                  [0, -1, -1, -1, -2, -2, -3]],
+                 [[0, 0, -1, -1, -1, -2, -3],
+                  [-1, 0, -1, 0, 0, -2, -2],
+                  [-1, 0, 0, 1, 0, 0, -1],
+                  [0, -1, -1, -1, -1, -4, -5]],
+                 [[0, 1, 0, 1, 0, -2, -2],
+                  [0, -1, 0, -1, -2, -3, -4],
+                  [0, -1, -1, -2, -2, -4, -6],
+                  [-1, -2, -2, -3, -4, -5, -8]]]
 
     func runTimedCode() {
-        for k in 0..<Global.SENSORS.sensors.count {
-            let randomNum = Double(arc4random_uniform(50))
-            Global.SENSORS[k]?.AddSensorData(time: Date(), freq: freqs[k][timerTick])//(sensor?.mainfreq ?? 0)  - 25.0 + randomNum)
-        }
+        let timerTick = Int(-(self.timer.userInfo as! Date).timeIntervalSinceNow) - 1
         
-        progressView.animate(toAngle: 360 * Double(timerTick) / Double(Global.measureLength), duration: 1, completion: nil)
-        progressLabel.text = "\(Int(Double(timerTick) / Double(Global.measureLength) * 100))%"
+        var index = 0
+        for k in 0..<Global.SENSORS.sensors.count {
+            if let standart = standartMeasureObject {
+                if timerTick <= 4 {
+                    index = 0
+                }
+                else if timerTick <= 6 {
+                    index = 1
+                }
+                else if timerTick <= 8 {
+                    index = 2
+                }
+                else if timerTick <= 10 {
+                    index = 3
+                }
+                else if timerTick <= 20 {
+                    index = 4
+                }
+                else if timerTick <= 40 {
+                    index = 5
+                }
+                else {
+                    index = 6
+                }
+            
+                Global.SENSORS[k]?.AddSensorData(time: Date(), freq: Double(freqs[standart.id - 1][k][index]))//(sensor?.mainfreq ?? 0)  - 25.0 + randomNum)
+            }
+            else {
+                let randomNum = Double(arc4random_uniform(50))
+                
+                Global.SENSORS[k]?.AddSensorData(time: Date(), freq: (Global.SENSORS[k]?.mainfreq ?? 0)  - 25.0 + randomNum)
+            }
+        }
         
         if timerTick == Global.measureLength {
             timer.invalidate()
             ativityIndicator.stopAnimating()
             
+            saveButtonOutlet.isEnabled = true
+            saveButtonOutlet.setTitleColor(.white, for: .normal)
+            
             for sens in Global.SENSORS.sensors {
                 currentMeasure.AddSensorData(sensor: sens!)
             }
-            for i in 0..<Global.SENSORS.sensors.count {
-                currentMeasure.freqMeasure![i].removeFirst()
-                currentMeasure.timeMeasure![i].removeFirst()
-            }
             
             currentMeasure.useTimeMask = true
-            currentMeasure.SetTimeMask(mrows: standartMeasure!.getMaskValues())
+            if newMeasure == nil {
+                currentMeasure.SetTimeMask(mrows: standartMeasureObject!.getMaskValues())
+            }
+            else {
+                currentMeasure.SetTimeMask(mrows: newMeasure!.getMaskValues())
+            }
             currentMeasure.CalculateMeasureStatistic(calcSensorStatistic: true)
             currentSquare.text = String(format: "%g", currentMeasure.CalculateSquare())
             
@@ -94,8 +166,12 @@ class ActiveMeasureController: UIViewController {
                 self.completedLabel.alpha = 0
                 self.measureButtonOutlet.alpha = 1
             })
+            
+            return
         }
-        timerTick += 1
+        
+        progressView.animate(toAngle: 360 * Double(timerTick) / Double(Global.measureLength), duration: 1, completion: nil)
+        progressLabel.text = "\(Int(Double(timerTick) / Double(Global.measureLength) * 100))%"
     }
     
     @IBAction func closeButtonAction(_ sender: UIButton) {
@@ -104,10 +180,54 @@ class ActiveMeasureController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func saveButtonAction(_ sender: UIButton) {
+        if let newMeasure = newMeasure {
+            try! uiRealm.write {
+                for sens in Global.SENSORS.Items {
+                    if let sensor = sens {
+                        let newFreqData = FreqDataObject()
+                        newFreqData.id = FreqDataObject.incrementID!
+                        newFreqData.measure = newMeasure
+                        newFreqData.freqValue = sensor.StartFrequency
+                        newFreqData.timeValue = -1
+                        newFreqData.sensorId = sensor.ID
+                        newMeasure.freqData.append(newFreqData)
+                        uiRealm.add(newFreqData)
+                    
+                        for k in 0..<sensor.FreqMeasure.count {
+                            let freqData = FreqDataObject()
+                            freqData.id = FreqDataObject.incrementID!
+                            freqData.measure = newMeasure
+                            freqData.freqValue = sensor.FreqMeasure[k]
+                            freqData.timeValue = sensor.TimeMeasure[k]
+                            freqData.sensorId = sensor.ID
+                            
+                            newMeasure.freqData.append(freqData)
+                            uiRealm.add(freqData)
+                        }
+                    }
+                    
+                    uiRealm.add(newMeasure, update: true)
+                }
+            }
+        
+            timer.invalidate()
+            Global.SENSORS.Items.map { $0?.EndMeasure() }
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toMeasureSegue" {
             let vc = segue.destination as! MeasureController
             vc.currentMeasure = self.currentMeasure
+            vc.standartMeasure = self.standartMeasure
+            
+            let measureSquare: Double = Double(self.currentSquare.text!)!
+            let standartSquare: Double = Double(self.standartSquare.text!)!
+            
+            vc.result = (measureSquare - 3 * 0.5) / (standartSquare + 3 * 0.5)
         }
     }
 }

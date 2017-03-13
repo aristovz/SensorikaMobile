@@ -75,8 +75,7 @@ extension TreeTableView: UITableViewDelegate, UITableViewDataSource {
             cell.background.bounds.origin.x = -20.0 * CGFloat(node.getLevel())
             
             cell.nameLabel.text = node.name
-            cell.descriptionLabel.text = node.desc
-         
+            
             return cell
         }
     }

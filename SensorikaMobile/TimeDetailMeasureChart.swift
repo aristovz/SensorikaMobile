@@ -9,7 +9,7 @@
 import Foundation
 import Charts
 
-class TimeMeasureChart: RadarChartView {
+class TimeDetailMeasureChart: RadarChartView {
     func setChart() {
         //self.backgroundColor = .clear
         self.noDataText = ""
@@ -17,6 +17,7 @@ class TimeMeasureChart: RadarChartView {
         self.legend.enabled = true
         self.legend.textColor = .white
         self.legend.font = self.legend.font.withSize(15)
+        
         self.backgroundColor = UIColor.background
         
         self.xAxis.drawGridLinesEnabled = true
@@ -26,19 +27,19 @@ class TimeMeasureChart: RadarChartView {
         
         self.yAxis.drawAxisLineEnabled = false
         self.yAxis.drawGridLinesEnabled = false
-        self.yAxis.drawZeroLineEnabled = true
-        self.yAxis.drawLabelsEnabled = false
-        self.yAxis.axisMinimum = 0
+        self.yAxis.drawZeroLineEnabled = false
+        self.yAxis.drawLabelsEnabled = true
+        self.yAxis.labelTextColor = .white
+        
+        //self.yAxis.drawZeroLineEnabled = false
     }
     
-    class func setChartDataSet(dataSet: RadarChartDataSet, setColor: UIColor = .white, fillColor: UIColor = .blue, drawValues: Bool = true) {
+    class func setChartDataSet(dataSet: RadarChartDataSet, setColor: UIColor = .white, fillColor: UIColor = .blue) {
         // Create bar chart data set containing salesEntries
         dataSet.setColor(setColor)
         dataSet.fillColor = fillColor
         dataSet.fillAlpha = 0.7
         dataSet.drawFilledEnabled = true
-        
-        dataSet.drawValuesEnabled = drawValues
-        dataSet.valueColors = [UIColor.white]
+        dataSet.drawValuesEnabled = false
     }
 }

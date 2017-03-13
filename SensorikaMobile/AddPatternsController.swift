@@ -19,7 +19,8 @@ class AddPatternsController: UIViewController {
     @IBOutlet weak var maskField: UITextField!
     
     @IBOutlet weak var deleteButtonOutlet: UIButton!
-    var currentMeasure: MeasureObject? = nil
+    var currentMeasureObject: MeasureObject? = nil
+    var currentMeasure: Measure? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,25 +30,31 @@ class AddPatternsController: UIViewController {
         saveButton.layer.borderWidth = 1
         saveButton.layer.borderColor = UIColor.buttonBorder.cgColor
         
-        deleteButtonOutlet.isHidden = currentMeasure == nil
+        deleteButtonOutlet.isHidden = currentMeasureObject == nil
         
-        if let measure = currentMeasure {
+        if let measure = currentMeasureObject {
             nameField.text = measure.name
-            squareField.text = String(format: "%g", measure.square)
             maskField.text = measure.mask
+            
+            currentMeasure = Measure(measureObject: measure, sensArray: Global.SENSORS)
+            currentMeasure?.useTimeMask = true
+            currentMeasure?.SetTimeMask(mrows: measure.getMaskValues())
+            currentMeasure?.CalculateMeasureStatistic(calcSensorStatistic: true)
+            
+            squareField.text = String(format: "%g", currentMeasure!.CalculateSquare())
         }
         // Do any additional setup after loading the view.
     }
-
+    
     @IBOutlet weak var saveButton: UIButton!
     
     @IBAction func saveButtonAction(_ sender: UIButton) {
         if Double(squareField.text!.replacingOccurrences(of: ",", with: ".")) != nil {
-            if currentMeasure != nil {
+            if currentMeasureObject != nil {
                 try! uiRealm.write {
-                    currentMeasure?.name = nameField.text!
-                    currentMeasure?.square = Double(squareField.text!)!
-                    currentMeasure?.mask = maskField.text!
+                    currentMeasureObject?.name = nameField.text!
+                    //currentMeasureObject?.square = Double(squareField.text!)!
+                    currentMeasureObject?.mask = maskField.text!
                 }
             }
             else {
@@ -65,7 +72,8 @@ class AddPatternsController: UIViewController {
     
     @IBAction func deleteButtonAction(_ sender: UIButton) {
         try! uiRealm.write {
-            uiRealm.delete(currentMeasure!)
+            uiRealm.delete(uiRealm.objects(FreqDataObject.self).filter("measure.id == \(currentMeasureObject!.id)"))
+            uiRealm.delete(currentMeasureObject!)
         }
         
         dismiss(animated: true, completion: nil)

@@ -47,7 +47,7 @@ class TreeNodeHelper {
                 nodes.append(node)
             }
             else if let measure = item as? MeasureObject {
-                node = TreeNode(desc: "Square: \(measure.square)", id: measure.id, parentId: measure.groupId.value, name: measure.name)
+                node = TreeNode(desc: "", id: measure.id, parentId: measure.groupId.value, name: measure.name) //desc: "Площадь: \(measure.square)"
                 nodes.append(node)
             }
         }

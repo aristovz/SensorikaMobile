@@ -127,6 +127,47 @@ class Measure
         _startTime = 0
     }
     
+    init (measureObject: MeasureObject, sensArray: SensorsArray)
+    {
+        Init()
+        sensors = sensArray
+        var index = -1
+        
+        for data in measureObject.freqData {
+            if data.timeValue == -1 {
+                if let sens = sensors?.GetByID(id: data.sensorId) {
+                    usedSensors?.append(sens)
+                
+                    freqMeasure?.append(Array<Double>())
+                    timeMeasure?.append(Array<Double>())
+                    
+                    startFreq?.append(data.freqValue)
+                    index += 1
+                    continue
+                }
+            }
+            
+            timeMeasure?[index].append(data.timeValue)
+            freqMeasure?[index].append(data.freqValue)
+            
+            let deltaF = self.DeltaF(sensnum: index, index: freqMeasure![index].count - 1)
+            if deltaF < freqDeltaMin! {
+                freqDeltaMin = deltaF
+            }
+            if deltaF > freqDeltaMax! {
+                freqDeltaMax = deltaF
+            }
+        }
+        
+        usedSensorsNumber = usedSensors!.count
+        self._showSensor = [Bool](repeating: true, count: usedSensorsNumber!)
+        for _ in 0..<usedSensorsNumber! {
+            extremumIndex?.append(0)
+            minIndex?.append(0)
+            maxIndex?.append(0)
+        }
+    }
+    
     func DeltaFreqByMask(sens_index: Int, mask_index: Int) ->  (Bool, delta_freq: Double)
     {
         var mask_time: Double?
@@ -277,7 +318,7 @@ class Measure
     func DeltaF(sensnum: Int, index: Int) -> Double
     {
         guard freqMeasure![sensnum].count > index else {
-            print("index: \(index) sensnum: \(sensnum) count: \(freqMeasure![sensnum].count)")
+            //print("index: \(index) sensnum: \(sensnum) count: \(freqMeasure![sensnum].count)")
             return 0
         }
         
@@ -286,6 +327,7 @@ class Measure
     
     func SetTimeMask(mrows: Array<Double>)/*|error|DataRowCollection*/
     {
+        self.useTimeMask = true
         _timeMaskValues?.removeAll()
         for /*sniffdbDataSet.MaskDataRow*/ mrow in mrows {
             _timeMaskValues?.append(mrow)//.TimeValue);
@@ -344,8 +386,9 @@ class Measure
 class MeasureObject: Object {
     dynamic var id: Int = 1
     dynamic var name: String = ""
-    dynamic var square: Double = 0
+    //dynamic var square: Double = 0
     dynamic var mask: String = ""
+    let freqData = List<FreqDataObject>()
     let groupId = RealmOptional<Int>()
     
     override static func primaryKey() -> String? {
@@ -363,6 +406,18 @@ class MeasureObject: Object {
         }
         
         return maskValues
+    }
+}
+
+class FreqDataObject: Object {
+    dynamic var id: Int = 1
+    dynamic var measure: MeasureObject? = nil
+    dynamic var timeValue: Double = 0
+    dynamic var freqValue: Double = 0
+    dynamic var sensorId: Int = 0
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
 

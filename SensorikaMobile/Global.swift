@@ -16,6 +16,8 @@ class Global {
     
     static var measureLength = 60
     
+    static var standartMask = "4 6 8 10 20 40 60"
+    
     static func TriangleSquare(a: Double, b: Double, angle_rad: Double) -> Double {
         return a * b * sin(angle_rad) / 2
     }

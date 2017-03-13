@@ -232,7 +232,7 @@ class MainController: UIViewController, IndicatorInfoProvider, SensorDelegate {
         if let measure = self.selectedMeasure {
             let vc = Global.appDelegate.mainStoryBoard.instantiateViewController(withIdentifier: "activeMeasureNavController") as! UINavigationController
             
-            (vc.viewControllers[0] as! ActiveMeasureController).standartMeasure = measure
+            (vc.viewControllers[0] as! ActiveMeasureController).standartMeasureObject = measure
             let mask = measure.getMaskValues()
             if mask.count != 0 {
                 Global.measureLength = Int(measure.getMaskValues().last!)

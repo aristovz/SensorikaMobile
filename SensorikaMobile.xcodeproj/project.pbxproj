@@ -13,6 +13,11 @@
 		2F26D1FF1E59F66200620377 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D1FE1E59F66200620377 /* ColorPickerView.swift */; };
 		2F26D2011E5ACF7200620377 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D2001E5ACF7200620377 /* TreeNode.swift */; };
 		2F26D2031E5AD1E200620377 /* TreeNodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F26D2021E5AD1E200620377 /* TreeNodeHelper.swift */; };
+		2F30088A1E76664A009FCF02 /* launchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F3008891E76664A009FCF02 /* launchIcon.png */; };
+		2F30088C1E7685FF009FCF02 /* Pods_SensorikaMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F30088B1E7685FF009FCF02 /* Pods_SensorikaMobile.framework */; };
+		2F361A2C1E76306F0066DAF5 /* TimeDetailMeasureChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F361A2B1E76306F0066DAF5 /* TimeDetailMeasureChart.swift */; };
+		2F361A2E1E7637AB0066DAF5 /* WelcomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F361A2D1E7637AB0066DAF5 /* WelcomeStoryboard.storyboard */; };
+		2F361A311E7639560066DAF5 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F361A301E7639560066DAF5 /* PageViewController.swift */; };
 		2F39EA701E3A2EBB0010F597 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA6F1E3A2EBB0010F597 /* AppDelegate.swift */; };
 		2F39EA721E3A2EBB0010F597 /* PagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA711E3A2EBB0010F597 /* PagesViewController.swift */; };
 		2F39EA751E3A2EBB0010F597 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F39EA731E3A2EBB0010F597 /* Main.storyboard */; };
@@ -22,6 +27,7 @@
 		2F39EA881E3A2EBB0010F597 /* SensorikaMobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA871E3A2EBB0010F597 /* SensorikaMobileTests.swift */; };
 		2F39EA931E3A2EBB0010F597 /* SensorikaMobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39EA921E3A2EBB0010F597 /* SensorikaMobileUITests.swift */; };
 		2F3BFEBE1E5B1EDD00F8D055 /* ActiveMeasureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BFEBD1E5B1EDC00F8D055 /* ActiveMeasureController.swift */; };
+		2F7355601E764D910071083F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F73555F1E764D910071083F /* AuthViewController.swift */; };
 		2F77F3A21E5885D6002CF821 /* SensorMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F77F3A11E5885D6002CF821 /* SensorMonitorView.swift */; };
 		2F84CF7E1E5C77E000C5F0B2 /* TimeMeasureChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F84CF7D1E5C77E000C5F0B2 /* TimeMeasureChart.swift */; };
 		2F89A4951E51D14A004D9D7F /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F89A4941E51D14A004D9D7F /* Measure.swift */; };
@@ -43,7 +49,6 @@
 		2FFA14041E570895006B183A /* MonitoringChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA14031E570894006B183A /* MonitoringChartView.swift */; };
 		2FFA14061E576EFE006B183A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA14051E576EFE006B183A /* SettingsController.swift */; };
 		2FFA140E1E5775F5006B183A /* SettingsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA140D1E5775F5006B183A /* SettingsDetailController.swift */; };
-		DF37B9E6EA5013B268554512 /* Pods_SensorikaMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE32EEA26EA33A493206F4A7 /* Pods_SensorikaMobile.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,13 @@
 		2F26D1FE1E59F66200620377 /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		2F26D2001E5ACF7200620377 /* TreeNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		2F26D2021E5AD1E200620377 /* TreeNodeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNodeHelper.swift; sourceTree = "<group>"; };
+		2F3008591E765986009FCF02 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../Library/Developer/Xcode/DerivedData/SensorikaMobile-bnzwpwceoxuetrflphsiebkysgqv/Build/Products/Release-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
+		2F3008761E765CB1009FCF02 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2F3008891E76664A009FCF02 /* launchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchIcon.png; sourceTree = "<group>"; };
+		2F30088B1E7685FF009FCF02 /* Pods_SensorikaMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_SensorikaMobile.framework; path = "Pods/../build/Release-iphoneos/Pods_SensorikaMobile.framework"; sourceTree = "<group>"; };
+		2F361A2B1E76306F0066DAF5 /* TimeDetailMeasureChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeDetailMeasureChart.swift; sourceTree = "<group>"; };
+		2F361A2D1E7637AB0066DAF5 /* WelcomeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomeStoryboard.storyboard; sourceTree = "<group>"; };
+		2F361A301E7639560066DAF5 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		2F39EA6C1E3A2EBB0010F597 /* SensorikaMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SensorikaMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F39EA6F1E3A2EBB0010F597 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F39EA711E3A2EBB0010F597 /* PagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagesViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +97,7 @@
 		2F39EA921E3A2EBB0010F597 /* SensorikaMobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorikaMobileUITests.swift; sourceTree = "<group>"; };
 		2F39EA941E3A2EBB0010F597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F3BFEBD1E5B1EDC00F8D055 /* ActiveMeasureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActiveMeasureController.swift; sourceTree = "<group>"; };
+		2F73555F1E764D910071083F /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		2F77F3A11E5885D6002CF821 /* SensorMonitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorMonitorView.swift; sourceTree = "<group>"; };
 		2F84CF7D1E5C77E000C5F0B2 /* TimeMeasureChart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMeasureChart.swift; sourceTree = "<group>"; };
 		2F89A4941E51D14A004D9D7F /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
@@ -94,6 +107,13 @@
 		2F96A1CD1E560841000A34DD /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		2FBD00431E54B7DD000AD9A9 /* MeasureProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureProfile.swift; sourceTree = "<group>"; };
 		2FBD00461E54BB0D000AD9A9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2FCA7B031E7587B4006DDC89 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../Library/Developer/Xcode/DerivedData/SensorikaMobile-bnzwpwceoxuetrflphsiebkysgqv/Build/Products/Debug-iphonesimulator/Charts/Charts.framework"; sourceTree = "<group>"; };
+		2FCA7B041E7587B4006DDC89 /* DropDown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropDown.framework; path = "../../Library/Developer/Xcode/DerivedData/SensorikaMobile-bnzwpwceoxuetrflphsiebkysgqv/Build/Products/Debug-iphonesimulator/DropDown/DropDown.framework"; sourceTree = "<group>"; };
+		2FCA7B051E7587B4006DDC89 /* KDCircularProgress.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KDCircularProgress.framework; path = "../../Library/Developer/Xcode/DerivedData/SensorikaMobile-bnzwpwceoxuetrflphsiebkysgqv/Build/Products/Debug-iphonesimulator/KDCircularProgress/KDCircularProgress.framework"; sourceTree = "<group>"; };
+		2FCA7B061E7587B4006DDC89 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../../Library/Developer/Xcode/DerivedData/SensorikaMobile-bnzwpwceoxuetrflphsiebkysgqv/Build/Products/Debug-iphonesimulator/Realm/Realm.framework"; sourceTree = "<group>"; };
+		2FCA7B071E7587B4006DDC89 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../Library/Developer/Xcode/DerivedData/SensorikaMobile-bnzwpwceoxuetrflphsiebkysgqv/Build/Products/Debug-iphonesimulator/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
+		2FCA7B081E7587B4006DDC89 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../Library/Developer/Xcode/DerivedData/SensorikaMobile-bnzwpwceoxuetrflphsiebkysgqv/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
+		2FCA7B091E7587B4006DDC89 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = "../../Library/Developer/Xcode/DerivedData/SensorikaMobile-bnzwpwceoxuetrflphsiebkysgqv/Build/Products/Debug-iphonesimulator/XLPagerTabStrip/XLPagerTabStrip.framework"; sourceTree = "<group>"; };
 		2FD45AB61E5AD7F10030F40C /* TreeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeTableView.swift; sourceTree = "<group>"; };
 		2FD45AB81E5AD9960030F40C /* TreeNodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TreeNodeCell.xib; sourceTree = "<group>"; };
 		2FD45AB91E5AD9960030F40C /* TreeNodeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeNodeCell.swift; sourceTree = "<group>"; };
@@ -116,7 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF37B9E6EA5013B268554512 /* Pods_SensorikaMobile.framework in Frameworks */,
+				2F30088C1E7685FF009FCF02 /* Pods_SensorikaMobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +175,15 @@
 			name = SettingsCell;
 			sourceTree = "<group>";
 		};
+		2F361A2F1E7639050066DAF5 /* WelcomeStoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				2F361A301E7639560066DAF5 /* PageViewController.swift */,
+				2F73555F1E764D910071083F /* AuthViewController.swift */,
+			);
+			name = WelcomeStoryBoard;
+			sourceTree = "<group>";
+		};
 		2F39EA631E3A2EBB0010F597 = {
 			isa = PBXGroup;
 			children = (
@@ -186,8 +215,10 @@
 				2F89A4921E51D12C004D9D7F /* View */,
 				2F39EA6F1E3A2EBB0010F597 /* AppDelegate.swift */,
 				2F39EA731E3A2EBB0010F597 /* Main.storyboard */,
+				2F361A2D1E7637AB0066DAF5 /* WelcomeStoryboard.storyboard */,
 				2F39EA791E3A2EBB0010F597 /* Assets.xcassets */,
 				2F39EA7B1E3A2EBB0010F597 /* LaunchScreen.storyboard */,
+				2F3008891E76664A009FCF02 /* launchIcon.png */,
 				2F39EA7E1E3A2EBB0010F597 /* Info.plist */,
 				2F39EA761E3A2EBB0010F597 /* SensorikaMobile.xcdatamodeld */,
 			);
@@ -217,6 +248,7 @@
 			children = (
 				2F8EE19E1E5BAE640049FF70 /* MeasureChartView.swift */,
 				2F84CF7D1E5C77E000C5F0B2 /* TimeMeasureChart.swift */,
+				2F361A2B1E76306F0066DAF5 /* TimeDetailMeasureChart.swift */,
 			);
 			name = MeasureCharts;
 			sourceTree = "<group>";
@@ -248,6 +280,7 @@
 		2F89A4931E51D130004D9D7F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2F361A2F1E7639050066DAF5 /* WelcomeStoryBoard */,
 				2FFA14071E576F43006B183A /* SettingsController */,
 				2F39EA711E3A2EBB0010F597 /* PagesViewController.swift */,
 				2FDFC4FE1E561840004C9E75 /* MainController.swift */,
@@ -319,6 +352,16 @@
 		557C30807EAAD4649D924FCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F30088B1E7685FF009FCF02 /* Pods_SensorikaMobile.framework */,
+				2F3008761E765CB1009FCF02 /* AVFoundation.framework */,
+				2F3008591E765986009FCF02 /* Charts.framework */,
+				2FCA7B031E7587B4006DDC89 /* Charts.framework */,
+				2FCA7B041E7587B4006DDC89 /* DropDown.framework */,
+				2FCA7B051E7587B4006DDC89 /* KDCircularProgress.framework */,
+				2FCA7B061E7587B4006DDC89 /* Realm.framework */,
+				2FCA7B071E7587B4006DDC89 /* RealmSwift.framework */,
+				2FCA7B081E7587B4006DDC89 /* SwiftyJSON.framework */,
+				2FCA7B091E7587B4006DDC89 /* XLPagerTabStrip.framework */,
 				DE32EEA26EA33A493206F4A7 /* Pods_SensorikaMobile.framework */,
 			);
 			name = Frameworks;
@@ -395,7 +438,7 @@
 				TargetAttributes = {
 					2F39EA6B1E3A2EBB0010F597 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = Z76ZV82BGX;
+						DevelopmentTeam = DSX6W75YR7;
 						ProvisioningStyle = Automatic;
 					};
 					2F39EA821E3A2EBB0010F597 = {
@@ -437,9 +480,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F361A2E1E7637AB0066DAF5 /* WelcomeStoryboard.storyboard in Resources */,
 				2FD45ABE1E5ADDA00030F40C /* DataInof.plist in Resources */,
 				2F39EA7D1E3A2EBB0010F597 /* LaunchScreen.storyboard in Resources */,
 				2F39EA7A1E3A2EBB0010F597 /* Assets.xcassets in Resources */,
+				2F30088A1E76664A009FCF02 /* launchIcon.png in Resources */,
 				2F26D1FC1E58EAC000620377 /* SettingsCell.xib in Resources */,
 				2FD45AC71E5B07300030F40C /* MeasureCell.xib in Resources */,
 				2F39EA751E3A2EBB0010F597 /* Main.storyboard in Resources */,
@@ -517,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F8EE19F1E5BAE640049FF70 /* MeasureChartView.swift in Sources */,
+				2F361A2C1E76306F0066DAF5 /* TimeDetailMeasureChart.swift in Sources */,
 				2FD45AC01E5AE75E0030F40C /* Group.swift in Sources */,
 				2FFA14061E576EFE006B183A /* SettingsController.swift in Sources */,
 				2FD45AC61E5B07300030F40C /* MeasureCell.swift in Sources */,
@@ -537,6 +583,8 @@
 				2F0D7BC21E5CEA4400712969 /* AddPatternsController.swift in Sources */,
 				2F26D1FF1E59F66200620377 /* ColorPickerView.swift in Sources */,
 				2FFA14041E570895006B183A /* MonitoringChartView.swift in Sources */,
+				2F7355601E764D910071083F /* AuthViewController.swift in Sources */,
+				2F361A311E7639560066DAF5 /* PageViewController.swift in Sources */,
 				2FBD00441E54B7DD000AD9A9 /* MeasureProfile.swift in Sources */,
 				2F39EA701E3A2EBB0010F597 /* AppDelegate.swift in Sources */,
 				2F84CF7E1E5C77E000C5F0B2 /* TimeMeasureChart.swift in Sources */,
@@ -693,10 +741,15 @@
 			baseConfigurationReference = CE010B68DE2480D4A9D867F0 /* Pods-SensorikaMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z76ZV82BGX;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DSX6W75YR7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = SensorikaMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = aristovz.SensorikaMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = aristovz.SensorikaMobile3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				USE_HEADERMAP = NO;
@@ -708,10 +761,15 @@
 			baseConfigurationReference = 896C45CC9B58E012D4B82F51 /* Pods-SensorikaMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z76ZV82BGX;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DSX6W75YR7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = SensorikaMobile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = aristovz.SensorikaMobile;
+				PRODUCT_BUNDLE_IDENTIFIER = aristovz.SensorikaMobile3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				USE_HEADERMAP = NO;
